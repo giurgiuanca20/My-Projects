@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  user-service:
+    build: ./UserManagement
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices-network
+
+  device-service:
+    build: ./DeviceManagement
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices-network
+
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: server
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: varanudorm
+      POSTGRES_DB: user_db
+    networks:
+      - microservices-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

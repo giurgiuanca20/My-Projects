@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('https://scontent.farw1-1.fna.fbcdn.net/v/t1.15752-9/387507936_312939314886790_1301291974383262452_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fqAjNTJolQcQ7kNvgEK0EJ5&_nc_ht=scontent.farw1-1.fna&oh=03_Q7cD1QE9ugSJo-cnq1IomgIUImJw9ZWsOoMoVtYYMwokceyz8A&oe=667D5341');
+    background-repeat: repeat;
+    background-size: 300px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#rectContainer {
+    position: absolute;
+    top: 50px;
+    left: 270px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rectContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+.sideBar {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+    max-height: calc(100vh - 10px);
+    overflow-y: auto; // Adaugă scroll pe axa Y
+}
+.sideBar img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.sideBar {
+    margin-right: 20px;
+}
+.sideBar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sideBar::-webkit-scrollbar-track {
+    background-color:#425721;
+}
+
+.sideBar::-webkit-scrollbar-thumb {
+    background-color: #1F3607;
+    border-radius: 5px;
+}
+.rectSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 2px solid;
+    background-color:#425721;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color:rgba(66, 87, 33, 0.7);
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+}
+.rectSection:hover {
+    background-color:rgba(59, 95, 36, 0.7);
+}
+.textArea {
+    width: calc(100% - 170px);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    resize: none;
+
+    color:#FFFFFF;
+    background-color:rgba(0, 0, 0, 0)
+}
+
+input[type="time"] {
+    width: 150px;
+    font-size: 16px;
+    margin-left: 20px;
+    background-color:rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    padding: 5px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); // Schimbă culoarea iconului în alb
+margin-left: 5px;
+    width: 25px;
+    height: 25px;
+}
+.container {
+    align-items: flex-start; //Aliniem side-bar la stanga
+}
+.rectContent img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    background-color:rgba(0, 0, 0, 0);
+}
+
+button {
+    position: fixed;
+    padding: 25px 35px;
+    background-color: #1F3607;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+button:hover {
+    background-color: #3B5F24;
+}
+
+.selected {
+    border: 2px solid white; /* Exemplu: Schimbă stilul dreptunghiului atunci când este selectat */
+}

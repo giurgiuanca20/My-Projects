@@ -1,0 +1,33 @@
+.modal{
+    width:300px;
+    background-color:rgba(60, 78, 30, 0.884);
+    padding: 20px;
+    padding-top:5px;
+    border-radius: 10px;
+    position: fixed;
+    z-index:2;
+    margin-top:5%;
+    margin-left: 38%;
+    overflow: auto;
+    left: 0;
+    top: 0;
+}
+
+
+.modal-content{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+
+select{
+    height:30px;
+    border-radius: 5px;
+    border: 0px;
+}
+ .modal span{
+    cursor: pointer;
+    color:white;
+ }
+

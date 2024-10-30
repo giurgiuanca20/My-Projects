@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('https://scontent.farw1-1.fna.fbcdn.net/v/t1.15752-9/387507936_312939314886790_1301291974383262452_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fqAjNTJolQcQ7kNvgEK0EJ5&_nc_ht=scontent.farw1-1.fna&oh=03_Q7cD1QE9ugSJo-cnq1IomgIUImJw9ZWsOoMoVtYYMwokceyz8A&oe=667D5341');
+    background-repeat: repeat;
+    background-size: 300px;
+    position: relative;
+}
+
+#datetime {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: right;
+    background-color: rgba(66, 87, 33, 0.5);
+}
+
+#time {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    line-height: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+#date {
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+button {
+    padding: 25px 35px;
+    margin: 10px;
+    background-color: #1F3607;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #3B5F24;
+}

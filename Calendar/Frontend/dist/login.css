@@ -1,0 +1,40 @@
+body {
+    background: url('https://scontent.farw1-1.fna.fbcdn.net/v/t1.15752-9/387507936_312939314886790_1301291974383262452_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fqAjNTJolQcQ7kNvgEK0EJ5&_nc_ht=scontent.farw1-1.fna&oh=03_Q7cD1QE9ugSJo-cnq1IomgIUImJw9ZWsOoMoVtYYMwokceyz8A&oe=667D5341');
+    background-repeat: repeat;
+    background-size: 300px;
+    font-family: Arial, sans-serif;
+}
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color:rgba(66, 87, 33, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Umbră */
+}
+.login-container h2 {
+    text-align: center;
+    color:white;
+}
+.login-container input[type="text"],
+.login-container input[type="password"]{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #1F3607;
+    border-radius: 3px;
+    background-color:#1F3607;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #3B5F24;
+}

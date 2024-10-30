@@ -1,0 +1,6 @@
+.mapping-component{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}

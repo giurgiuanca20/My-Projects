@@ -1,0 +1,21 @@
+.client-container{
+color:white;
+width:90%;
+margin: 0px;
+padding-top: 4%;
+display:flex;
+flex-direction: column;
+align-items: flex-start;
+}
+h1{
+    padding: 0%;
+}
+
+#greeting{
+    padding-top: 20px;
+    font-size: 30px;
+}
+.empty-continer{
+    width: 90vw;
+   
+}

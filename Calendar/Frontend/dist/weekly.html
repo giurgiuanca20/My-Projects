@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Weekly</title>
+    <link rel="stylesheet" href="weekly.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sideBar" onclick="createRectangle(event)">
+        <img alt="Image 1"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/400724858_1033395547994454_3713841701464197053_n.png?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=KTOQdnJDCIkAX-vCGTv&_nc_ht=scontent.fclj3-1.fna&oh=03_AdT46rYvrmACQVJOtzNRNLLi0fRpxHiYjMel8OfdEyYEOg&oe=6585796F">
+        <img alt="Image 2"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/400772948_676543714588693_6304087547613772723_n.png?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=t4MmqUJb_Q8AX-JzpoS&_nc_oc=AQn4wxS2eGrRK8KBPuATAyvuiOEEmvx18t8NWidWYiU_t514knPdTk8YViVRXZwHIE4&_nc_ht=scontent.fclj3-1.fna&oh=03_AdQnl_A-J5noQSWXcgjS0Oq51poaept_qHW7kTXjHHAV8Q&oe=6585723F">
+        <img alt="Image 3"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/401054331_865879365026922_8113514698137651894_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6EEqSv9SEkUAX_896x_&_nc_ht=scontent.fclj3-1.fna&oh=03_AdS1Xx0sJphbu0Kr0d7ktI6wn5a-jx0sXo504cgr1xxWEQ&oe=65857A64">
+        <img alt="Image 4"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/398503126_244181415343126_4895404105679044588_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=AN5VBiJJ51YAX-17wQT&_nc_ht=scontent.fclj3-1.fna&oh=03_AdTfPF5RkbEn3tbE1ktYz6bH3vmk46wTlLDs_Pw_lg6J2g&oe=65859B8B">
+        <img alt="Image 5"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/401034547_256533757407033_3045070366275408984_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=nOWpeVGmyQwAX-sx921&_nc_ht=scontent.fclj3-1.fna&oh=03_AdToSEhCPOzB7gNzf3Zvzu8zPIhLDFOi0Y65YyvhIpV9_w&oe=65858F33">
+        <img alt="Image 6"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/403634770_854961069745812_7338640043148132381_n.png?_nc_cat=105&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6Jg-g4Ui7Q4AX8z8XTK&_nc_ht=scontent.fclj3-1.fna&oh=03_AdQqlksgd5Q1SlztDYV_znyMdKtuZNna5Ya21M1Yn0jUEQ&oe=65858597">
+        <img alt="Image 7"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/370216370_201541619590004_7829816301400091354_n.png?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=WuhJCqNLioEAX8GzdAY&_nc_ht=scontent.fclj3-1.fna&oh=03_AdSytVA8nCAd539KoiKOj2Y1BTzWn-OOpM65tut7NpSbiA&oe=65857BA2">
+        <img alt="Image 8"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/398503134_3788054441428677_8385713595052491955_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=Rc_qdC5Ne_oAX8q7q47&_nc_ht=scontent.fclj3-1.fna&oh=03_AdSzQYM-HXqvAsCnE7FYLYeuD0zQ91rr6TT44of6NUaeow&oe=65858881">
+        <img alt="Image 9"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/386898144_899146468219092_2957918978778832438_n.png?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=n2-6OyZtYE8AX-z8tG1&_nc_ht=scontent.fclj3-1.fna&oh=03_AdQIRk5vZdp6Z-JlJkoWmISBgfyaPRPF1Vri9-uO7Ujt2w&oe=65857F64">
+        <img alt="Image 10"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/405417768_1567911363947135_8873323402961535612_n.png?_nc_cat=110&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=FdS6VtrO1wcAX8RsAPL&_nc_ht=scontent.fclj3-1.fna&oh=03_AdSX8kiFifNiwKO4dnl076ZBBqlcFYk46xjdlXmK5KP4eg&oe=65858C78">
+        <img alt="Image 11"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/400776645_282673271424963_7204500933024473164_n.png?_nc_cat=100&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=1vzwxNYZ6-QAX8GjLOP&_nc_ht=scontent.fclj3-1.fna&oh=03_AdSANiZlkYX9xBZF_-Ki9PQnRIHeqhmhgV6hPkI7xkKCOw&oe=65859CA6">
+        <img alt="Image 12"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/375769825_872939330820179_7515084832423563814_n.png?_nc_cat=100&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=BkDTyUoi6n0AX8aKE2V&_nc_ht=scontent.fclj3-1.fna&oh=03_AdSdz6TMtGLLFatT6S7zeKl47IRIH7V_OOIgxaC75k8eHw&oe=6585870E">
+        <img alt="Image 13"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/398400708_1003097907467957_1531180905613105725_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=QB2TPIw6md8AX-EbqUN&_nc_ht=scontent.fclj3-1.fna&oh=03_AdTYqXbNyxqxOIJ215vssVhoF6W-SO-LU9I46cT7c69NOw&oe=65857AE2">
+        <img alt="Image 14"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/377293032_289608610727527_2705901521561589180_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=LEeOcJJ2CVsAX9yx43D&_nc_ht=scontent.fclj3-1.fna&oh=03_AdTP6zemN_RAdl6AF1FiQ6dfAw1EmVmvZpWBfJObchZn5w&oe=65856DDE">
+        <img alt="Image 15"
+             src="https://scontent.fclj3-1.fna.fbcdn.net/v/t1.15752-9/403632767_889166532602321_631935753967807392_n.png?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=-WyxAYIZhYgAX9CmhU7&_nc_ht=scontent.fclj3-1.fna&oh=03_AdQTBPFjrGlRJxWEpr0EADDp0JijGeIHV3tu-LdOg5Fw2w&oe=658588B7">
+    </div>
+    <div class="main-content">
+        <div class="square" onclick="showInput('Luni',event)">Luni</div>
+        <div class="square" onclick="showInput('Marti',event)">Marti</div>
+        <div class="square" onclick="showInput('Miercuri',event)">Miercuri</div>
+        <div class="square" onclick="showInput('Joi',event)">Joi</div>
+        <div class="square" onclick="showInput('Vineri',event)">Vineri</div>
+        <div class="square" onclick="showInput('Sambata',event)">Sambata</div>
+        <div class="square" onclick="showInput('Duminica',event)">Duminica</div>
+    </div>
+    <div id="rectContainer"></div>
+    <button onclick="save()" style="bottom: 20px; right: 180px;">Trimite</button>
+    <button onclick="redirectPage1()" style="bottom: 20px; right: 30px;">Afiseaza</button>
+</div>
+
+<script src="weekly.js"></script>
+
+
+</body>
+</html>

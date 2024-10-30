@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id "org.flywaydb.flyway" version "7.9.0"
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.4'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.12.5'
+
+    // Google Calendar API dependencies
+    implementation 'com.google.api-client:google-api-client:2.0.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev20220715-2.0.0'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    runtimeOnly 'mysql:mysql-connector-java:8.0.28'
+    runtimeOnly 'com.h2database:h2:2.1.210'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.8.0'
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
+    implementation group: 'org.flywaydb', name: 'flyway-core', version: '8.5.13'
+    implementation 'org.flywaydb:flyway-mysql:8.5.13'
+
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3306/'
+    user = 'root'
+    password = 'root'
+    schemas = ['spring1']
+}

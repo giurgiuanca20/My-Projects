@@ -1,0 +1,36 @@
+body {
+    background: url('https://scontent.farw1-1.fna.fbcdn.net/v/t1.15752-9/387507936_312939314886790_1301291974383262452_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fqAjNTJolQcQ7kNvgEK0EJ5&_nc_ht=scontent.farw1-1.fna&oh=03_Q7cD1QE9ugSJo-cnq1IomgIUImJw9ZWsOoMoVtYYMwokceyz8A&oe=667D5341');
+    background-repeat: repeat;
+    background-size: 300px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.square {
+    width: 110px;
+    height: 110px;
+    background-color: rgba(31, 54, 23, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 15px; /* Adaugă border-radius pentru a rotunji colțurile */
+    border: 5px solid transparent; /* Adaugă un border inițial transparent */
+    box-sizing: border-box;
+}
+
+.month {
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 40px;
+    color: white;
+}
