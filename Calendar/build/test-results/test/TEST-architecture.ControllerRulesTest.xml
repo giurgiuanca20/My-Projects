@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="architecture.ControllerRulesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-06-03T07:11:26" hostname="ANCA" time="0.13">
+  <properties/>
+  <testcase name="controllersShouldOnlyHaveServicesAsFields" classname="architecture.ControllerRulesTest" time="0.061"/>
+  <testcase name="controllersShouldOnlyReturnDtos" classname="architecture.ControllerRulesTest" time="0.006"/>
+  <testcase name="controllersShouldNeverReferenceEntitiesDirectly" classname="architecture.ControllerRulesTest" time="0.004"/>
+  <testcase name="allControllerMethodsShouldBePublic" classname="architecture.ControllerRulesTest" time="0.006"/>
+  <testcase name="allPublicControllerMethodsShouldBeRestEndpoints" classname="architecture.ControllerRulesTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

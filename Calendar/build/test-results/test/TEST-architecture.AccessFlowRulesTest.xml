@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="architecture.AccessFlowRulesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-06-03T07:11:26" hostname="ANCA" time="0.173">
+  <properties/>
+  <testcase name="servicesShouldNotAccessControllers" classname="architecture.AccessFlowRulesTest" time="0.122"/>
+  <testcase name="controllersShouldNotAccessRepositories" classname="architecture.AccessFlowRulesTest" time="0.016"/>
+  <testcase name="entitiesShouldNotReferenceAnyBeans" classname="architecture.AccessFlowRulesTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

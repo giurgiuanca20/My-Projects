@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="architecture.NamingConventionRulesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-06-03T07:11:26" hostname="ANCA" time="0.079">
+  <properties/>
+  <testcase name="restControllersShouldHaveControllerInClassName" classname="architecture.NamingConventionRulesTest" time="0.073"/>
+  <testcase name="servicesShouldHaveServiceInClassName" classname="architecture.NamingConventionRulesTest" time="0.002"/>
+  <testcase name="repositoriesShouldHaveRepoInClassName" classname="architecture.NamingConventionRulesTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

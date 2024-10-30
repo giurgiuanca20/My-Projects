@@ -1,0 +1,12 @@
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\dtos\DeviceDetailsDto.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\dtos\MessageResponse.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\controllers\DeviceController.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\dtos\MappingDto.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\controllers\handlers\DeviceNotFoundException.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\dtos\builders\DeviceBuilder.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\entities\Device.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\controllers\handlers\GlobalExceptionHandler.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\repositories\DeviceRepository.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\kafka\KafkaProducer.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\services\DeviceService.java
+C:\Users\crist\Desktop\DS\DS2024_30444_Giurgiu_Anca_1\DeviceManagement\src\main\java\com\example\DeviceManagement\DeviceManagementApplication.java
