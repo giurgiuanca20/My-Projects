@@ -20,7 +20,7 @@ h1 {
 .switch {
     position: relative;
     height: 26px;
-    width: 350px;
+    width: 400px;
     background: #009c0893;
     border-radius: 32px;
     margin-bottom: 20px;
@@ -32,7 +32,7 @@ h1 {
     position: relative;
     z-index: 2;
     float: left;
-    width: 30%;
+    width: 22%;
     font-size: 15px;
     color:white;
     text-align: center;
@@ -60,6 +60,10 @@ h1 {
     transform: translateX(203%);
 }
 
+.switch-input:checked+.switch-label-c~.switch-selector {
+    transform: translateX(300%);
+}
+
 
 .switch-selector {
     position: absolute;
@@ -67,7 +71,7 @@ h1 {
     top: 0px;
     left: 0px;
     display: block;
-    width: 33%;
+    width: 25%;
     height: 26px;
     border-radius: 32px;
     background-color: #0d9c80c5;

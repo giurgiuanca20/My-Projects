@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface DeviceRepository extends JpaRepository<Device,Long> {
 
     Boolean existsByDescription(String description);
+    Boolean existsByIdAndUserId(Long id,Long userId);
 
     Optional<Device> findByDescriptionAndAddressAndMaxHourlyConsumption(String description,String address, int maxHourlyConsumption);
     Optional<Device> findByDescription(String description);
@@ -29,5 +30,7 @@ public interface DeviceRepository extends JpaRepository<Device,Long> {
     @Query("UPDATE Device d SET d.userId = null WHERE d.userId = :userId")
     void deleteUserIdByUserId(Long userId);
 
+    @Query("SELECT d.id FROM Device d WHERE d.description = :description AND d.address = :address AND d.maxHourlyConsumption = :maxHourlyConsumption")
+    Long findId(String description,String address, int maxHourlyConsumption);
     List<Device> findByUserId(Long userId);
 }

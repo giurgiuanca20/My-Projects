@@ -18,7 +18,7 @@ function ModalEditUser({ closeModalEdit, updateUserInList, usernameText, nameTex
 
 
     const validateName = (name) => {
-        const nameRegex = /^[a-zA-Z0-9]+$/; 
+        const nameRegex = /^[a-zA-Z0-9]+$/;
         return nameRegex.test(name);
     };
 

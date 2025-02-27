@@ -20,7 +20,7 @@ function ModalAddUser({closeModal, addUserToList}) {
     };
     
     const validateName = (name) => {
-        const nameRegex = /^[a-zA-Z0-9]+$/;
+        const nameRegex = /^[a-zA-Z0-9]+$/; 
         return nameRegex.test(name);
     };
 
@@ -30,7 +30,7 @@ function ModalAddUser({closeModal, addUserToList}) {
     };
 
     const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/; 
         return passwordRegex.test(password);
     };
 
@@ -84,11 +84,11 @@ function ModalAddUser({closeModal, addUserToList}) {
     
             if (result==="User registered successfully!") {
                 console.log("User created successfully!");
-                addUserToList(newUser);            
+                addUserToList(newUser);           
                 closeModal();
             } else {
                 alert(`Error: ${result}`);
-            }                                       
+            }                                         
         } catch (error) {
             console.error("Failed to create user:", error);
         }

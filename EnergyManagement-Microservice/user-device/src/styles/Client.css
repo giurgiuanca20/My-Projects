@@ -19,3 +19,8 @@ h1{
     width: 90vw;
    
 }
+.simulator{
+    width: 100%;
+    display: flex;
+    gap:40px;
+}

@@ -27,13 +27,19 @@ public class UserController {
         return new ResponseEntity<>("User deleted!",HttpStatus.OK);
     }
     @GetMapping("/find")
-    public ResponseEntity<User> findById(@RequestBody Long id){
+    public ResponseEntity<User> findById(@RequestParam Long id){
         User user=userService.findById(id);
         return new ResponseEntity<>(user,HttpStatus.FOUND);
     }
     @GetMapping("/findAll")
     public ResponseEntity<List<User>> findAll(){
        List<User> users=userService.findAll();
+        return new ResponseEntity<>(users,HttpStatus.FOUND);
+    }
+
+    @GetMapping("/findAllAdmins")
+    public ResponseEntity<List<User>> findAllAdmins(){
+        List<User> users=userService.findAllAdmins();
         return new ResponseEntity<>(users,HttpStatus.FOUND);
     }
 

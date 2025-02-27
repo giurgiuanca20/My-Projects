@@ -1,28 +1,26 @@
 
 
 function setCookie(value){
-    document.cookie=`cookie=${value}`
+  try {
+    sessionStorage.setItem('sessionUser', value);
+  } catch (error) {
+    console.error("Error setting session storage:", error);
+  }
   }
   
   
   function getCookie() {
     try {
-      const userAux = document.cookie.split('; ').find(cookie => cookie.startsWith('cookie='));
-      if (userAux) {
-        const parsedUser = JSON.parse(decodeURIComponent(userAux.split('=')[1]));
-        return parsedUser;
-      } else {
-        return null;
-      }
+      const user = sessionStorage.getItem('sessionUser');
+      return user ? JSON.parse(user) : null;
     } catch (error) {
-      console.error("Error parsing user from cookies:", error);
+      console.error("Error parsing user from session storage:", error);
       return null;
     }
   }
 
 
   export {
-   
     getCookie,
     setCookie,
   };

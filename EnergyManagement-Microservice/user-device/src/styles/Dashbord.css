@@ -1,0 +1,32 @@
+.dashbord{
+    width:99%;
+    background-color:rgba(66, 87, 33, 0.7);
+    border-radius: 5px;
+}
+
+
+.user-list {
+    margin-bottom: 20px;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.active-chats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chat-box-admin {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap:10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5%;
+}

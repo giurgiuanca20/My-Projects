@@ -1,0 +1,53 @@
+.chart{
+    background-color:rgb(42, 58, 17);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+canvas{
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Stilizarea legendei */
+.chartjs-legend {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+}
+
+/* Stilizarea tooltip-ului */
+.chartjs-tooltip {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+.my-custom-chart {
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color:rgb(42, 58, 17);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.my-custom-chart canvas {
+    border-radius: 10px;
+}
+
+.badge{
+    border-radius: 100%;
+    background-color: rgba(10, 169, 84, 0.57);
+    font-size: 20;
+    padding-left:12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.simulator-componet{
+    width: 100%;
+}

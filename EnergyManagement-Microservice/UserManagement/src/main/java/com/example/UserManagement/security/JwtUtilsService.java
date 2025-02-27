@@ -36,7 +36,7 @@ public class JwtUtilsService {
             .setIssuedAt(new Date())
             .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
             .signWith(SignatureAlgorithm.HS512,getSignKey())
-            .compact();
+           .compact();
   }
 
   public boolean validateJwtToken(String authToken) {
@@ -65,7 +65,7 @@ public class JwtUtilsService {
     return claims.getSubject();
   }
 
-  private SecretKey getSignKey() {
+   private SecretKey getSignKey() {
     byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
     return Keys.hmacShaKeyFor(keyBytes);
   }

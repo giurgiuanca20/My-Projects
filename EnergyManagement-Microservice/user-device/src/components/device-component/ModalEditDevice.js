@@ -48,7 +48,7 @@ function ModalEditDevice({ closeModalEdit, updateDeviceInList, descriptionText, 
             if (result==="Device updated!") {
                 console.log("Device edited successfully!");
                 updateDeviceInList(updatedDevice);
-                closeModalEdit(); 
+                closeModalEdit();
             } else {
                 alert(`Error: ${result}`);
             }

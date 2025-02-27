@@ -16,12 +16,12 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final KafkaConsumer kafkaConsumer;
+  //  private final KafkaConsumer kafkaConsumer;
 
     @Autowired
-    public UserService(UserRepository userRepository,KafkaConsumer kafkaConsumer) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.kafkaConsumer=kafkaConsumer;
+        //this.kafkaConsumer=kafkaConsumer;
     }
 
     @Transactional
@@ -30,7 +30,7 @@ public class UserService {
         userRepository.findByUsername(username).orElseThrow(() -> {
             return new UserNotFoundException("Can't delete. User not found!");
         });
-        kafkaConsumer.deleteUser(userRepository.findByUsername(username).get().getId());
+        //kafkaConsumer.deleteUser(userRepository.findByUsername(username).get().getId());
         userRepository.deleteByUsername(username);
     }
 
@@ -46,6 +46,13 @@ public class UserService {
     public List<User> findAll() {
 
         List<User> users = userRepository.findAll();
+        return users;
+
+    }
+
+    public List<User> findAllAdmins() {
+
+        List<User> users = userRepository.findAllAdmins();
         return users;
 
     }

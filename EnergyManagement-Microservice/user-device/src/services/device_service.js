@@ -1,11 +1,22 @@
-const API_URL = "http://localhost:8081/device";
+import { getCookie } from './../services/login_service';
+
+const user = getCookie();
+
+
+let API_URL = "http://device1.localhost/device";
+
+function setApi(simulationId) {
+  //API_URL = `http://device${simulationId}.localhost/device`;
+  API_URL = "http://device1.localhost/device";
+}
 
 async function getDevices() {
   const response = await fetch(API_URL+"/findAll",{
     method: "GET",
-    // mode: "cors",
-    // cache: "no-cache",
-    // credentials: "include",
+    headers: {
+      "Authorization": `Bearer ${user.token}`, 
+      "Content-type": "application/json",
+    },
   });
   const json = await response.json();
   return json;
@@ -14,16 +25,14 @@ async function getDevices() {
 async function postDevice(description, address, maxHourlyConsumption) {
     const response = await fetch(API_URL + "/create", {
       method: "POST",
-    //   mode: "cors",
-    //   cache: "no-cache",
-    //   credentials: "include",
       body: JSON.stringify({
         description: description,
         address: address,
         maxHourlyConsumption: maxHourlyConsumption,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${user.token}`, 
+        "Content-type": "application/json",
       },
     });
   
@@ -35,16 +44,14 @@ async function postDevice(description, address, maxHourlyConsumption) {
   async function deleteDevice(description,address,maxHourlyConsumption) {
     const response = await fetch(API_URL + "/delete", {
       method: "DELETE",
-    //   mode: "cors",
-    //   cache: "no-cache",
-    //   credentials: "include",
       body: JSON.stringify({
         description: description,
         address:address,
         maxHourlyConsumption:maxHourlyConsumption,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",   //nu cred ca am nevoie de utf
+        "Authorization": `Bearer ${user.token}`, 
+        "Content-type": "application/json",
       },
     });
     const text = await response.text();
@@ -54,16 +61,14 @@ async function postDevice(description, address, maxHourlyConsumption) {
   async function updateDevice(description,address,maxHourlyConsumption) {
     const response = await fetch(API_URL + "/update", {
       method: "PUT",
-    //   mode: "cors",
-    //   cache: "no-cache",
-    //   credentials: "include",
       body: JSON.stringify({
         description: description,
         address:address,
         maxHourlyConsumption:maxHourlyConsumption,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${user.token}`, 
+        "Content-type": "application/json",
       },
     });
       
@@ -80,5 +85,6 @@ async function postDevice(description, address, maxHourlyConsumption) {
     getDevices,
     deleteDevice,
     updateDevice,
+    setApi,
 
   };

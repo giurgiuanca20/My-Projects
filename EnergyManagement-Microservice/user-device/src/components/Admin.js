@@ -1,7 +1,7 @@
 import '../styles/Admin.css';
 import Device from './device-component/Device';
 import User from './user-component/User';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import ModalAddUser from './user-component/ModalAddUser';
 import ModalEditUser from './user-component/ModalEditUser';
 import ModalAddDevice from './device-component/ModalAddDevice';
@@ -10,6 +10,8 @@ import { getUsers, deleteUser } from './../services/user_service';
 import { getDevices, deleteDevice } from './../services/device_service';
 import { getCookie } from './../services/login_service';
 import Mapping from './Mapping';
+import { useNavigate } from 'react-router-dom';
+import Dashbord from './chat-component/Dashbord';
 
 function Admin() {
 
@@ -22,8 +24,21 @@ function Admin() {
     const [selectedUserEdit, setSelectedUserEdit] = useState(null);
     const [selectedDeviceEdit, setSelectedDeviceEdit] = useState(null);
     const [selectedOption, setSelectedOption] = useState('users');
+    const navigate = useNavigate();
 
     useEffect(() => {
+
+
+        const user=getCookie();
+
+        const verify = async () => {
+            if(user.roles[0] === 'CLIENT')
+            navigate('/');
+        };
+
+        verify();
+
+
         const loadUsers = async () => {
             try {
                 const fetchedUsers = await getUsers();
@@ -34,9 +49,7 @@ function Admin() {
         };
 
         loadUsers();
-    }, []);
 
-    useEffect(() => {
         const loadDevices = async () => {
             try {
                 const fetchedDevices = await getDevices();
@@ -47,7 +60,10 @@ function Admin() {
         };
 
         loadDevices();
-    }, []);
+
+
+
+    }, []); 
 
     const handleSelectDevice = (id) => {
         if (selectedDevices.includes(id)) {
@@ -130,7 +146,7 @@ function Admin() {
     };
 
     const updateUs = () => {
-        if (selectedUsers.length === 1) {
+        if (selectedUsers.length === 1) {  
             const user = users.find(u => u.id === selectedUsers[0]);
             if (user) {
                 openModalEditUser(user);
@@ -141,7 +157,7 @@ function Admin() {
     };
 
     const updateDev = () => {
-        if (selectedDevices.length === 1) {
+        if (selectedDevices.length === 1) { 
             const device = devices.find(u => u.id === selectedDevices[0]);
             if (device) {
                 openModalEditDevice(device);
@@ -187,21 +203,21 @@ function Admin() {
     };
 
     const addUserToList = (newUser) => {
-        setUsers((prevUsers) => [...prevUsers, newUser]);          
+        setUsers((prevUsers) => [...prevUsers, newUser]);           
     };
 
     const addDeviceToList = (newDevice) => {
-        setDevices((prevDevices) => [...prevDevices, newDevice]);        
+        setDevices((prevDevices) => [...prevDevices, newDevice]);    
     };
 
     const updateUserInList = (updatedUser) => {
-        setUsers((prevUsers) =>            
+        setUsers((prevUsers) =>             
             prevUsers.map((user) => (user.username === updatedUser.username ? updatedUser : user))
         );
     };
     
     const updateDeviceInList = (updatedDevice) => {
-        setDevices((prevDevices) =>       
+        setDevices((prevDevices) =>         
             prevDevices.map((device) => (device.description === updatedDevice.description ? updatedDevice : device))
         );
     };
@@ -215,7 +231,7 @@ function Admin() {
                     <div className='buttonsClass'>
                         <button onClick={openModal}>Add User</button>
                         {isModalOpen && (
-                            <ModalAddUser closeModal={closeModal} addUserToList={addUserToList}/>   
+                            <ModalAddUser closeModal={closeModal} addUserToList={addUserToList}/> 
                         )}
                         <button onClick={updateUs}>Edit User</button>
                         <button onClick={deleteUs}>Delete User</button>
@@ -244,6 +260,13 @@ function Admin() {
                     <Mapping/>
                 </div>
             );
+        }else if (selectedOption === 'chat') {
+            return (
+                <div>
+                    <div className="empty-continer"></div>
+                   <Dashbord/>
+                </div>
+            );
         }
         return null;
     };
@@ -260,6 +283,8 @@ function Admin() {
                 <label htmlFor="switch-i" className="switch-label switch-label-i">Devices</label>
                 <input id="switch-n" name="tripple" type="radio" value="mapping" className="switch-input" checked={selectedOption === "mapping"} onChange={handleSwitchChange} />
                 <label htmlFor="switch-n" className="switch-label switch-label-n">Mapping</label>
+                <input id="switch-c" name="tripple" type="radio" value="chat" className="switch-input" checked={selectedOption === "chat"} onChange={handleSwitchChange} />
+                <label htmlFor="switch-c" className="switch-label switch-label-c">Chat</label>
                 <span className="switch-selector"></span>
             </div>
             {render()}
@@ -267,7 +292,7 @@ function Admin() {
             {isModalOpenEdit && selectedUserEdit && (
                 <ModalEditUser
                     closeModalEdit={closeModalEditUser}
-                    updateUserInList={updateUserInList}
+                    updateUserInList={updateUserInList} 
                     usernameText={selectedUserEdit.username}
                     nameText={selectedUserEdit.name}
                     emailText={selectedUserEdit.email}

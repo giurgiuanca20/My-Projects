@@ -13,11 +13,11 @@ function ModalAddDevice({closeModal, addDeviceToList}) {
 
 
     const validateDescription = (desc) => {
-        return desc.length <= 100; 
+        return desc.length <= 100;
     };
 
     const validateAddress = (addr) => {
-        const addressRegex = /^(?=.*[a-zA-Z])(?=.*\d)/;
+        const addressRegex = /^(?=.*[a-zA-Z])(?=.*\d)/; 
         return addressRegex.test(addr);
     };
 
@@ -25,7 +25,7 @@ function ModalAddDevice({closeModal, addDeviceToList}) {
         let valid = true;
 
         if (!validateDescription(description)) {
-            setDescriptionError('Description must be at most 150 characters.');
+            setDescriptionError('Description must be at most 100 characters.');
             valid = false;
         } else {
             setDescriptionError('');
@@ -44,7 +44,7 @@ function ModalAddDevice({closeModal, addDeviceToList}) {
 
     async function handleCreateDevice() {
         if (!handleValidation()) {
-            return; 
+            return;
         }
         try {
             const newDevice = {

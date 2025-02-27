@@ -6,31 +6,127 @@ services:
       - "8080:8080"
     networks:
       - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.user-service.rule=Host(`user.localhost`)"
+      - "traefik.http.services.user-service.loadbalancer.server.port=8080"
 
-  device-service:
+  device-service-1:
     build: ./DeviceManagement
-    ports:
-      - "8081:8081"
+    depends_on:
+      - rabbitmq
     networks:
       - microservices-network
+    environment:
+      - SENSOR_FILE_PATH=/app/resources/sensor.csv
+      - CONFIG_FILE_PATH=/app/config1.properties
+    volumes:
+      - /c/Users/crist/Desktop/DS/ds2024_30444_giurgiu_anca_2/DeviceManagement/sensor.csv:/app/resources/sensor.csv
+      - /c/Users/crist/Desktop/DS/ds2024_30444_giurgiu_anca_2/DeviceManagement/src/main/resources/config1.properties:/app/config1.properties
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.device-service-1.rule=Host(`device1.localhost`)"
+      - "traefik.http.services.device-service-1.loadbalancer.server.port=8081"
+
+  device-service-2:
+    build: ./DeviceManagement
+    depends_on:
+      - rabbitmq
+    networks:
+      - microservices-network
+    environment:
+      - SENSOR_FILE_PATH=/app/resources/sensor.csv
+      - CONFIG_FILE_PATH=/app/config2.properties
+    volumes:
+      - /c/Users/crist/Desktop/DS/ds2024_30444_giurgiu_anca_2/DeviceManagement/sensor.csv:/app/resources/sensor.csv
+      - /c/Users/crist/Desktop/DS/ds2024_30444_giurgiu_anca_2/DeviceManagement/src/main/resources/config2.properties:/app/config2.properties
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.device-service-2.rule=Host(`device2.localhost`)"
+      - "traefik.http.services.device-service-2.loadbalancer.server.port=8081"
+
+
+  monitoring-service:
+    build: ./MonitoringAndCommunicationMicroservice
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8088:8088"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.monitoring-service.rule=Host(`monitoring.localhost`)"
+      - "traefik.http.services.monitoring-service.loadbalancer.server.port=8088"
+
+  chat-service:
+    build: ./ChatMicroservice
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8082:8082"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chat-service.rule=Host(`chat.localhost`)"
+      - "traefik.http.services.chat-service.loadbalancer.server.port=8082"
 
   postgres-db:
     image: postgres:15-alpine
-    container_name: server
+    container_name: postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: varanudorm
       POSTGRES_DB: user_db
+      POSTGRES_MULTIPLE_DATABASES: user_db,device_db,monitoring_db
     networks:
       - microservices-network
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - microservices-network
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.dashboard.address=:8089"
+      - "--api.dashboard=true"
+    ports:
+      - "80:80"
+      - "8089:8089"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.localhost`)"
+      - "traefik.http.routers.traefik-dashboard.service=api@internal"
+      - "traefik.http.routers.traefik-dashboard.entrypoints=dashboard"
+
 networks:
-  microservices-network:
+  microservices-network: 
     driver: bridge
 
 volumes:
   postgres-data:
+  rabbitmq-data:

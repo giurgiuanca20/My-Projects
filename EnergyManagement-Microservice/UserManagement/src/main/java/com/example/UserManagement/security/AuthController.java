@@ -26,12 +26,10 @@ public class AuthController {
 
   @PostMapping("/sign_in")
   public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-    Authentication authentication = authService.authenticate(
-        new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
-
+    Authentication authentication = authService.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
     SecurityContextHolder.getContext().setAuthentication(authentication);
     String jwt = jwtUtilsService.generateJwtToken(authentication);
+
 
     UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
     String role = userDetails.getAuthority().toString();
@@ -41,7 +39,6 @@ public class AuthController {
             .token(jwt)
             .id(userDetails.getId())
             .username(userDetails.getUsername())
-            .email(userDetails.getEmail())
             .roles(Collections.singletonList(role))
             .build());
   }

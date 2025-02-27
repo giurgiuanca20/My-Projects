@@ -25,6 +25,9 @@ public class DeviceService {
     public boolean existsByDescription(String description) {
         return deviceRepository.existsByDescription(description);
     }
+    public boolean existsByIdAndUserId(Long id,Long userId) {
+        return deviceRepository.existsByIdAndUserId(id,userId);
+    }
 
 
     public void createMapping(MappingDto mappingDto){
@@ -69,7 +72,7 @@ public class DeviceService {
 
     @Transactional
     public void delete(DeviceDetailsDto deviceDetailsDto) {
-        Device device=DeviceBuilder.toDevice(deviceDetailsDto); //e nevoie pt dto nu e bean
+        Device device=DeviceBuilder.toDevice(deviceDetailsDto);
         deviceRepository.findByDescriptionAndAddressAndMaxHourlyConsumption(device.getDescription(),device.getAddress(),device.getMaxHourlyConsumption()).orElseThrow(() -> {
             return new DeviceNotFoundException("Can't delete. Device not found!");
         });
@@ -83,6 +86,10 @@ public class DeviceService {
         });
         return device;
 
+    }
+
+    public Long findId(DeviceDetailsDto deviceDetailsDto) {
+        return deviceRepository.findId(deviceDetailsDto.getDescription(),deviceDetailsDto.getAddress(),deviceDetailsDto.getMaxHourlyConsumption());
     }
 
     public List<Device> findAll() {

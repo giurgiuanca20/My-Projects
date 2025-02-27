@@ -1,23 +1,40 @@
+
+import { getCookie } from './../services/login_service';
+
+const user = getCookie();
+
+
 const API_URL = "http://localhost:8080/user";
 const AUTH_URL = "http://localhost:8080/auth";
 
 async function getUsers() {
+
+  if (!user || !user.token) {
+    console.error("User not logged in or token not found.");
+    return;
+  }
   const response = await fetch(API_URL+"/findAll",{
     method: "GET",
-    // mode: "cors",
-    // cache: "no-cache",
-    // credentials: "include",
+    headers: {
+      "Authorization": `Bearer ${user.token}`, 
+      "Content-type": "application/json",
+    },
   });
   const json = await response.json();
   return json;
 }
 
 async function getUserId(username) {
+   if (!user || !user.token) {
+    console.error("User not logged in or token not found.");
+    return;
+  }
   const response = await fetch(API_URL+"/findId?username=" + encodeURIComponent(username),{
     method: "GET",
-    // mode: "cors",
-    // cache: "no-cache",
-    // credentials: "include",
+    headers: {
+      "Authorization": `Bearer ${user.token}`,
+      "Content-type": "application/json", 
+    },
   });
   const text = await response.text();
   return text;
@@ -25,10 +42,15 @@ async function getUserId(username) {
 
 
 async function deleteUser(username) {
+   if (!user || !user.token) {
+    console.error("User not logged in or token not found.");
+    return;
+  }
   const response = await fetch(API_URL + "/delete?username=" + encodeURIComponent(username), {
       method: "DELETE",
       headers: {
-        "Content-type": "application/json; charset=UTF-8",   //nu cred ca am nevoie de utf
+        "Authorization": `Bearer ${user.token}`,
+        "Content-type": "application/json",
       },
     });
 
@@ -37,11 +59,13 @@ async function deleteUser(username) {
   }
   
   async function updateUser(username, name, email, password, role) {
+
+    if (!user || !user.token) {
+      console.error("User not logged in or token not found.");
+      return;
+    }
     const response = await fetch(API_URL + "/update", {
       method: "PUT",
-      // mode: "cors",
-      // cache: "no-cache",
-      // credentials: "include",
       body: JSON.stringify({
         username: username,
         name: name,
@@ -50,7 +74,8 @@ async function deleteUser(username) {
         role:role,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${user.token}`,  
+        "Content-type": "application/json",  
       },
     });
       
@@ -61,11 +86,13 @@ async function deleteUser(username) {
 
 
 async function postUser(username, name,email,password,role) {
+
+  if (!user || !user.token) {
+    console.error("User not logged in or token not found.");
+    return;
+  }
     const response = await fetch(AUTH_URL + "/sign_up", {
       method: "POST",
-    //   mode: "cors",
-    //   cache: "no-cache",
-    //   credentials: "include",
       body: JSON.stringify({
         username: username,
         name: name,
@@ -74,7 +101,8 @@ async function postUser(username, name,email,password,role) {
         role:role,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${user.token}`,  
+        "Content-type": "application/json", 
       },
     });
   
@@ -86,15 +114,12 @@ async function postUser(username, name,email,password,role) {
   async function login(username, password) {
     const response = await fetch(AUTH_URL + "/sign_in", {
       method: "POST",
-    //   mode: "cors",
-    //   cache: "no-cache",
-    //   credentials: "include",
       body: JSON.stringify({
         username: username,
         password: password,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-type": "application/json",
       },
     });
   
@@ -103,13 +128,53 @@ async function postUser(username, name,email,password,role) {
   }
 
 
+
+  async function findAdmins() {
+  
+    if (!user || !user.token) {
+      console.error("User not logged in or token not found.");
+      return;
+    }
+    const response = await fetch(API_URL+"/findAllAdmins",{
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${user.token}`, 
+        "Content-type": "application/json",
+      },
+    });
+    const json = await response.json();
+    return json;
+  }
+
+
+  async function findById(id) {
+  
+    if (!user || !user.token) {
+      console.error("User not logged in or token not found.");
+      return;
+    }
+    const response = await fetch(API_URL+`/find?id=${id}`,{
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${user.token}`, 
+        "Content-type": "application/json",
+      },
+    });
+    const json = await response.json();
+    return json;
+  }
+
+
+
+
   export {
-   
+    findAdmins,
     postUser,
     deleteUser,
     getUsers,
     updateUser,
     getUserId,
     login,
+    findById,
 
   };

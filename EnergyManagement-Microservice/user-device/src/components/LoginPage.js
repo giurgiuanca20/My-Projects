@@ -9,13 +9,11 @@ function LoginPage({ onLogin }){
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-
-
     const handleLogin = async () => {
         try {
             const user = await login(username, password);
             if (user) {
-                onLogin(user); 
+                onLogin(user);
                     if (user.roles[0] === 'CLIENT') {
                         navigate('client'); 
                     } else if (user.roles[0] === 'ADMIN') {
@@ -30,8 +28,6 @@ function LoginPage({ onLogin }){
             alert("An error occurred during login. Please try again.");
         }
     };
-
-
 
     return(
     <div className='login-container'>

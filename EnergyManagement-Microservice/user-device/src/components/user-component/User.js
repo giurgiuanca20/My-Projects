@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 function User({ usernameText, nameText, emailText, passwordText, roleText, onSelect, id, isSelected }){
       
     const toggleBorder = () => { 
-        onSelect(id);
+        onSelect(id); 
     };
 
     return(

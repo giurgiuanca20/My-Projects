@@ -6,6 +6,7 @@ COPY ./pom.xml /root/
 COPY ./src/ /root/src
 COPY ./checkstyle.xml /root/
 
+
 # Set the working directory
 WORKDIR /root
 
